@@ -2,7 +2,7 @@ Spaceship vin;
 Stars[] dots;
 public void setup() 
 {
-  size(800, 800);
+  size(600, 600);
   vin = new Spaceship();
   dots = new Stars[50];
   for(int i = 0; i<50; i++)
@@ -29,5 +29,12 @@ public void keyTyped()
   if (key == 'e')
     vin.turn(10);
   if (key == 'f')
+  {
+    vin.setX((int)(Math.random()*600));
+    vin.setY((int)(Math.random()*600));
+    vin.setDirectionX(0);
+    vin.setDirectionY(0);
+    vin.setPointDirection((int)(Math.random()*360));
+  }
   
 }
