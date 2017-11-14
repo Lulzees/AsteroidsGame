@@ -1,5 +1,6 @@
 Spaceship vin;
 Stars[] dots;
+Asteroid[] cent;
 public void setup() 
 {
   size(600, 600);
@@ -8,6 +9,7 @@ public void setup()
   for(int i = 0; i<50; i++)
   {
     dots[i] = new Stars();
+    cent[i] = new Asteroid();
   }
 }
 public void draw() 
@@ -18,6 +20,8 @@ public void draw()
   for(int i = 0; i<50; i++)
   {
     dots[i].show();
+    cent[i].move();
+    cent[i].show();
   }
 }
 public void keyTyped()

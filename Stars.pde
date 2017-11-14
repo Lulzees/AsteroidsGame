@@ -3,8 +3,8 @@ public class Stars
   int myX, myY;
   public Stars()
   {
-    myX = (int)(Math.random()*800);
-    myY = (int)(Math.random()*800);
+    myX = (int)(Math.random()*600);
+    myY = (int)(Math.random()*600);
   }
   public void show()
   {
