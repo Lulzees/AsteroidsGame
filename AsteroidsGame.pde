@@ -6,6 +6,7 @@ public void setup()
   size(600, 600);
   vin = new Spaceship();
   dots = new Stars[50];
+  cent = new Asteroid[50];
   for(int i = 0; i<50; i++)
   {
     dots[i] = new Stars();
