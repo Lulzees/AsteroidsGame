@@ -1,16 +1,19 @@
 Spaceship vin;
 Stars[] dots;
-Asteroid[] cent;
+ArrayList<Asteroid> cent = new ArrayList<Asteroid>();;
 public void setup() 
 {
   size(600, 600);
   vin = new Spaceship();
-  dots = new Stars[50];
-  cent = new Asteroid[50];
+  dots = new Stars[50];;
   for(int i = 0; i<50; i++)
   {
     dots[i] = new Stars();
-    cent[i] = new Asteroid();
+  }
+
+  for(int i = 0; i<30; i++)
+  {
+    cent.add(new Asteroid());
   }
 }
 public void draw() 
@@ -21,8 +24,15 @@ public void draw()
   for(int i = 0; i<50; i++)
   {
     dots[i].show();
-    cent[i].move();
-    cent[i].show();
+  }
+  for(int i = 0; i<cent.size(); i++)
+  {
+    cent.get(i).move();
+    cent.get(i).show();
+    if(dist(cent.get(i).getX(), cent.get(i).getY(), vin.getX(), vin.getY()) < 20)
+    {
+      cent.remove(i);
+    }
   }
 }
 public void keyTyped()
