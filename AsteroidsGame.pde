@@ -1,11 +1,14 @@
 Spaceship vin;
 Stars[] dots;
-ArrayList<Asteroid> cent = new ArrayList<Asteroid>();;
+ArrayList<Bullet> yes;
+ArrayList<Asteroid> cent;
 public void setup() 
 {
   size(600, 600);
   vin = new Spaceship();
-  dots = new Stars[50];;
+  dots = new Stars[50];
+  cent = new ArrayList<Asteroid>();
+  yes = new ArrayList<Bullet>();
   for(int i = 0; i<50; i++)
   {
     dots[i] = new Stars();
@@ -34,6 +37,22 @@ public void draw()
       cent.remove(i);
     }
   }
+  for(int i = 0; i<yes.size(); i++)
+  {
+    yes.get(i).move();
+    yes.get(i).show();
+    for(int j = 0; j<cent.size(); j++)
+    {
+      if(dist(yes.get(i).getX(), yes.get(i).getY(), cent.get(j).getX(), cent.get(j).getY())<10)
+      {
+        yes.remove(i);
+        cent.remove(j);
+        break;
+      }
+    }
+  }
+
+
 }
 public void keyTyped()
 {
@@ -50,6 +69,10 @@ public void keyTyped()
     vin.setDirectionX(0);
     vin.setDirectionY(0);
     vin.setPointDirection((int)(Math.random()*360));
+  }
+  if (key == 'r')
+  {
+    yes.add(new Bullet(vin));
   }
   
 }
